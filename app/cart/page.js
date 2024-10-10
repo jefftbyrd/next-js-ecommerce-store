@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import React from 'react';
-import { getVirus, getViruses, viruses } from '../../database/viruses';
+import { getVirusesInsecure } from '../../database/viruses';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
 
@@ -11,8 +11,8 @@ export const metadata = {
 
 export default async function CartPage() {
   const cartCookie = await getCookie('cart');
-
   const cartItems = parseJson(cartCookie) || [];
+  const viruses = await getVirusesInsecure();
 
   // const displayCart = cart.map((quantity) => {
   //   return;
@@ -33,12 +33,12 @@ export default async function CartPage() {
   // const subtotal = cartItems.forEach(cartItem.id);
   // console.log(`subtotal`, subtotal);
 
-  console.log(`cartItems:`, cartItems);
-  let firstArray = [1, 2, 3];
-  let secondArray = [];
-  firstArray.forEach((element) => {
-    secondArray.push(element.id);
-  });
+  // console.log(`cartItems:`, cartItems);
+  // let firstArray = [1, 2, 3];
+  // let secondArray = [];
+  // firstArray.forEach((element) => {
+  //   secondArray.push(element.id);
+  // });
 
   // subtotals.push(8);
   // subtotals = cartItems;
@@ -47,8 +47,8 @@ export default async function CartPage() {
   //   // numCallbackRuns++;
   // });
   // subtotals();
-  console.log(`firstArray`, firstArray);
-  console.log(`secondArray`, secondArray);
+  // console.log(`firstArray`, firstArray);
+  // console.log(`secondArray`, secondArray);
 
   // if (!virusToUpdate) {
   //   cart.push({ id: virusId, quantity: quantity });
@@ -59,21 +59,21 @@ export default async function CartPage() {
   return (
     <>
       <h1>Cart</h1>
-      <hr />
-      <div>
+
+      <div className="cart">
         {cartItems.map((cartItem) => {
           return (
-            <div key={`cartItemId-${cartItem.id}`}>
+            <div key={`cartItemId-${cartItem.id}`} className="cartItem">
               <h2>Product ID: {cartItem.id}</h2>
-              <div>Name: {viruses[cartItem.id - 1].name}</div>
+              <div>Name: {viruses[cartItem.id - 1].virusName}</div>
               <div>Price: {viruses[cartItem.id - 1].price}</div>
               {/* <div>{viruses[getVirus(`${cartItem.id}`)].name}</div> */}
               {/* <div>Name = {viruses.getVirus(`${cartItem.id}`)}</div> */}
-              {/* <img
-                alt={viruses.virus.name}
-                src={viruses.virus.image}
-                className="detailImage"
-              /> */}
+              <img
+                alt={viruses[cartItem.id - 1].virusName}
+                src={`/viruses/${viruses[cartItem.id - 1].image}`}
+                // className="detailImage"
+              />
               <h3>Quantity: {cartItem.quantity}</h3>
               <div>
                 Total for this item:
@@ -82,7 +82,6 @@ export default async function CartPage() {
                 {/* {Number(cartItem.quantity) *
                   Number(viruses[cartItem.id - 1].price)} */}
               </div>
-              <hr />
             </div>
           );
         })}

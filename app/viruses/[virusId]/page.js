@@ -1,30 +1,48 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
-import { getVirus } from '../../../database/viruses';
+import { getVirusInsecure } from '../../../database/viruses';
 import { parseJson } from '../../../util/json';
 import AddToCart from './AddToCart';
 
+export async function generateMetadata(props) {
+  const singleVirus = await getVirusInsecure(
+    Number((await props.params).virusId),
+  );
+  return {
+    title: singleVirus.virus_name,
+    description: 'This is the ingleVirus.virus_name page ',
+  };
+}
+
 export default async function SingleVirusPage(props) {
-  const virus = getVirus(Number((await props.params).virusId));
+  const singleVirus = await getVirusInsecure(
+    Number((await props.params).virusId),
+  );
+
+  // const virus = getVirus(Number((await props.params).virusId));
 
   // const cartCookie = await getCookie('cart');
 
-  if (!virus) {
+  if (!singleVirus) {
     return notFound();
   }
 
   return (
     <div className="detailPage">
-      <img alt={virus.name} src={virus.image} className="detailImage" />
-      <h1 className="virusDetail">{virus.name}</h1>
-      {/* <h2>{virus.tagline}</h2> */}
+      <img
+        alt={singleVirus.name}
+        src={singleVirus.image}
+        className="detailImage"
+      />
+      <h1 className="virusDetail">{singleVirus.virusName}</h1>
+      <h2>{singleVirus.tagline}</h2>
 
-      <div className="price">{virus.price}</div>
+      <div className="price">{singleVirus.price}</div>
       <div className="AddToCart">
-        <AddToCart virusId={virus.id} />
+        <AddToCart virusId={singleVirus.id} />
       </div>
-      <div className="virusDesc">{virus.desc}</div>
+      <div className="virusDesc">{singleVirus.virusDesc}</div>
     </div>
   );
 }
