@@ -3,10 +3,12 @@ import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <div className="homeDiv">
-      <img className="home" src="viruses/Adenovirus.png" alt="" />
-      <h1 className="logo">Vector</h1>
-      <h2 className="logo">The virus shop</h2>
+    <div className="homePage">
+      <img src="viruses/adenovirus-home.webp" alt="" />
+      <div className="text">
+        <h1>Vector</h1>
+        <h2>The virus shop</h2>
+      </div>
     </div>
   );
 }

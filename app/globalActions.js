@@ -1,8 +1,8 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { getCookie } from '../../../util/cookies';
-import { parseJson } from '../../../util/json';
+import { getCookie } from '../util/cookies';
+import { parseJson } from '../util/json';
 
 export default async function createOrUpdateCookie(virusId, quantity) {
   // 1. get the cookie
@@ -12,8 +12,8 @@ export default async function createOrUpdateCookie(virusId, quantity) {
   const cart = cartCookie === undefined ? [] : parseJson(cartCookie);
 
   // 3. edit the cookie value
-  const virusToUpdate = cart.find((virus) => {
-    return virus.id === virusId;
+  const virusToUpdate = cart.find((virusQuantity) => {
+    return virusQuantity.id === virusId;
   });
 
   if (!virusToUpdate) {

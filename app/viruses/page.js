@@ -9,32 +9,32 @@ export const metadata = {
 export default async function Viruses() {
   const viruses = await getVirusesInsecure();
 
+  console.log('viruses', viruses);
+
   return (
-    <>
-      <h1 className="virusProducts">Viruses</h1>
-      <div className="virusContainer">
+    <div className="virusPage">
+      <h1>Viruses</h1>
+      <div className="virusProductsList">
         {viruses.map((virus) => {
           return (
-            <div
-              className="virusItem"
-              key={`virusId-${virus.id}`}
-              style={{
-                backgroundImage: `url(viruses/${virus.image})`,
-              }}
-              // style={{
-              //   backgroundImage: `url(viruses/${virus.virusName.toLowerCase()}.png)`,
-              // }}
-              // src={`/images/${animal.firstName.toLowerCase()}.webp`}
-              // style={{ backgroundImage: `url(viruses/${virus.image})` }}
-            >
+            <div className="virusItem" key={`virusId-${virus.id}`}>
               <Link href={`/viruses/${virus.id}`}>
-                <h2>{virus.virusName}</h2>
+                <div
+                  className="inner"
+                  style={{
+                    backgroundImage: `url(viruses/${virus.image})`,
+                  }}
+                >
+                  <h2>{virus.virusName}</h2>
+                  <div className="itemPrice">
+                    {Number(virus.price).toFixed(2)}
+                  </div>
+                </div>
               </Link>
-              <div>{virus.price}</div>
             </div>
           );
         })}
       </div>
-    </>
+    </div>
   );
 }

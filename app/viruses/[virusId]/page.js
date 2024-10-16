@@ -11,7 +11,7 @@ export async function generateMetadata(props) {
   );
   return {
     title: singleVirus.virus_name,
-    description: 'This is the ingleVirus.virus_name page ',
+    description: 'This is the singleVirus.virus_name page ',
   };
 }
 
@@ -29,20 +29,29 @@ export default async function SingleVirusPage(props) {
   }
 
   return (
-    <div className="detailPage">
+    <div className="singleVirusPage">
       <img
+        className="bigImage"
         alt={singleVirus.name}
         src={singleVirus.image}
-        className="detailImage"
       />
-      <h1 className="virusDetail">{singleVirus.virusName}</h1>
-      <h2>{singleVirus.tagline}</h2>
+      <div className="content">
+        <h1>{singleVirus.virusName}</h1>
+        {/* <h2>{singleVirus.tagline}</h2> */}
+        <div className="virusData">
+          <div className="virusDesc">
+            {singleVirus.virusDesc}
+            {/* <img alt={singleVirus.name} src={singleVirus.image} /> */}
+          </div>
 
-      <div className="price">{singleVirus.price}</div>
-      <div className="AddToCart">
-        <AddToCart virusId={singleVirus.id} />
+          <div className="buy">
+            <div className="price">{Number(singleVirus.price).toFixed(2)}</div>
+            <div className="AddToCart">
+              <AddToCart virusId={singleVirus.id} />
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="virusDesc">{singleVirus.virusDesc}</div>
     </div>
   );
 }

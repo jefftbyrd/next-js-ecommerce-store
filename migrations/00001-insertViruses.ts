@@ -4,7 +4,7 @@ export const viruses = [
   {
     id: 1,
     virus_name: 'Adenovirus',
-    image: 'adenovirus.png',
+    image: 'adv-d26.webp',
     price: 1200.0,
     tagline: 'This is the tagline',
     virus_desc:
@@ -13,7 +13,7 @@ export const viruses = [
   {
     id: 2,
     virus_name: 'Escherichia T4',
-    image: 'escherichia-t4.png',
+    image: 'escherichia-t4.webp',
     price: 1350.0,
     tagline: 'This is the tagline',
     virus_desc:
@@ -22,7 +22,7 @@ export const viruses = [
   {
     id: 3,
     virus_name: 'Cowpea Mosaic Virus',
-    image: 'cowpea-mosaic-virus.png',
+    image: 'cowpea-mosaic-virus.webp',
     price: 990.0,
     tagline: 'This is the tagline',
     virus_desc:
@@ -31,7 +31,7 @@ export const viruses = [
   {
     id: 4,
     virus_name: 'HSV-1 (Herpes Simplex)',
-    image: 'hsv-1.png',
+    image: 'hsv-1.webp',
     price: 399.99,
     tagline: 'This is the tagline',
     virus_desc:
@@ -40,7 +40,7 @@ export const viruses = [
   {
     id: 5,
     virus_name: 'Faustovirus',
-    image: 'faustovirus.png',
+    image: 'faustovirus.webp',
     price: 999.0,
     tagline: 'This is the tagline',
     virus_desc:
@@ -49,11 +49,29 @@ export const viruses = [
   {
     id: 6,
     virus_name: 'Rhinovirus',
-    image: 'rhinovirus.png',
+    image: 'rhinovirus.webp',
     price: 777.0,
     tagline: 'This is the tagline',
     virus_desc:
       'The rhinovirus (from the Ancient Greek: ῥίς, romanized: rhis "nose", gen ῥινός, romanized: rhinos "of the nose", and the Latin: vīrus) is a positive-sense, single-stranded RNA virus belonging to the genus Enterovirus in the family Picornaviridae. Rhinovirus is the most common viral infectious agent in humans and is the predominant cause of the common cold.',
+  },
+  {
+    id: 7,
+    virus_name: 'Simian Virus (SV40)',
+    image: 'simian.webp',
+    price: 899.0,
+    tagline: 'This is the tagline',
+    virus_desc:
+      'A polyomavirus that is found in both monkeys and humans. Like other polyomaviruses, SV40 is a DNA virus that sometimes causes tumors in animals, but most often persists as a latent infection. SV40 has been widely studied as a model eukaryotic virus, leading to many early discoveries in eukaryotic DNA replication and transcription.',
+  },
+  {
+    id: 8,
+    virus_name: 'Zika Virus',
+    image: 'zika.webp',
+    price: 960.0,
+    tagline: 'This is the tagline',
+    virus_desc:
+      'Zika virus is a member of the virus family Flaviviridae. It is spread by daytime-active Aedes mosquitoes, such as A. aegypti and A. albopictus. Its name comes from the Ziika Forest of Uganda, where the virus was first isolated in 1947.[6] Zika virus shares a genus with the dengue, yellow fever, Japanese encephalitis, and West Nile viruses.Since the 1950s, it has been known to occur within a narrow equatorial belt from Africa to Asia. From 2007 to 2016, the virus spread eastward, across the Pacific Ocean to the Americas, leading to the 2015–2016 Zika virus epidemic.',
   },
 ];
 
