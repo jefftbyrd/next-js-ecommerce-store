@@ -6,9 +6,19 @@ export type Virus = {
   id: number;
   virusName: string;
   image: string | null;
-  price: string;
+  price: number;
   tagline: string | null;
   virusDesc: string | null;
+  featured: string | null;
+  new: string | null;
+  realm: string | null;
+  kingdom: string | null;
+  phylum: string | null;
+  class: string | null;
+  vOrder: string | null;
+  vFamily: string | null;
+  genus: string | null;
+  species: string | null;
 };
 
 export const getVirusesInsecure = cache(async () => {
