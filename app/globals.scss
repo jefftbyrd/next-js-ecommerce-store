@@ -19,6 +19,7 @@
   );
   --letter-space: 0.06rem;
   --hover: background-color 0.3s ease-in-out;
+  --font-chivo: 'Chivo Variable', sans-serif;
 }
 
 .buttonBlue {
@@ -50,27 +51,31 @@ a {
 }
 
 html {
-  font-family: var(--font-ddin);
+  font-family: var(--font-chivo);
+  // font-family: var(--font-ddin);
 }
 
 html,
 body {
-  font-family: var(--font-ddin);
+  // font-family: var(--font-ddin);
+  font-family: var(--font-chivo);
+  font-weight: 200;
 }
 
 body {
   color: white;
   font-size: 1rem;
   background: var(--background);
-  font-family: var(--font-ddin);
+  // font-family: var(--font-ddin);
+  font-family: var(--font-chivo);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 p {
   margin-bottom: 30px;
-  line-height: 2rem;
-  font-size: 1.4rem;
+  line-height: 2.09rem;
+  font-size: 1.35rem;
 }
 
 h1,
@@ -80,7 +85,7 @@ h2 {
 
 h3 {
   letter-spacing: 0.06rem;
-  font-family: var(--font-ddin);
+  font-family: var(--font-chivo);
 }
 
 h1 {
@@ -90,7 +95,8 @@ h1 {
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.8rem;
+  font-weight: 600;
 }
 
 .container {
@@ -236,8 +242,8 @@ header {
   /* text-align: center; */
   background-image: repeating-linear-gradient(
     135deg,
-    #3acda880,
-    #3acda880 1px,
+    rgba(58, 205, 168, 0.2),
+    rgba(58, 205, 168, 0.2) 1px,
     transparent 1px,
     transparent 13px
   );
@@ -245,20 +251,42 @@ header {
 
   h2 {
     /* color: var(--light-green); */
-    font-size: 2.5vw;
+    // font-size: 2.5vw;
+    color: var(--light-green);
     line-height: 2.5vw;
     margin: 0px 0px 0px 50px;
     padding: 3px;
     /* padding: 20px 0px 0px 30px; */
     /* margin: 50px 50px 0px 0px; */
     text-transform: uppercase;
-    font-family: var(--font-ddin);
-    letter-spacing: 0.2rem;
-    background-color: var(--dark-green);
+    font-family: var(--font-chivo);
+    font-weight: 500;
+    letter-spacing: 0.07rem;
+    // background-color: var(--dark-green);
     width: max-content;
     /* text-shadow: var(--shadow); */
     /* transform-origin: 10vw 8vh;
     transform: rotate(-45deg); */
+    text-shadow:
+      var(--dark-green) 3px 0px 0px,
+      var(--dark-green) 2.83487px 0.981584px 0px,
+      var(--dark-green) 2.35766px 1.85511px 0px,
+      var(--dark-green) 1.62091px 2.52441px 0px,
+      var(--dark-green) 0.705713px 2.91581px 0px,
+      var(--dark-green) -0.287171px 2.98622px 0px,
+      var(--dark-green) -1.24844px 2.72789px 0px,
+      var(--dark-green) -2.07227px 2.16926px 0px,
+      var(--dark-green) -2.66798px 1.37182px 0px,
+      var(--dark-green) -2.96998px 0.42336px 0px,
+      var(--dark-green) -2.94502px -0.571704px 0px,
+      var(--dark-green) -2.59586px -1.50383px 0px,
+      var(--dark-green) -1.96093px -2.27041px 0px,
+      var(--dark-green) -1.11013px -2.78704px 0px,
+      var(--dark-green) -0.137119px -2.99686px 0px,
+      var(--dark-green) 0.850987px -2.87677px 0px,
+      var(--dark-green) 1.74541px -2.43999px 0px,
+      var(--dark-green) 2.44769px -1.73459px 0px,
+      var(--dark-green) 2.88051px -0.838247px 0px;
   }
 }
 
@@ -313,7 +341,7 @@ header {
   h2 {
     font-size: 2.5vw;
     text-transform: uppercase;
-    font-family: var(--font-ddin);
+    font-family: var(--font-chivo);
     letter-spacing: 0.2rem;
   }
 }
@@ -334,7 +362,7 @@ header {
     color: var(--light-green);
     font-size: 2.5vw;
     text-transform: uppercase;
-    font-family: var(--font-ddin);
+    font-family: var(--font-chivo);
     letter-spacing: 0.2rem;
     background-color: var(--dark-green);
   }
@@ -354,8 +382,8 @@ header {
 
         h3 {
           /* font-family: var(--font-grotesk-gras); */
-          font-family: var(--font-ddin-bold);
-          font-weight: bold;
+          font-family: var(--font-chivo);
+          font-weight: 600;
           font-size: 1.6rem;
           /* padding: 10px 20px; */
           line-height: 2.6rem;
@@ -366,6 +394,7 @@ header {
         h4 {
           margin-top: 10px;
           letter-spacing: 0.06rem;
+          font-weight: 300;
         }
       }
 
@@ -385,7 +414,8 @@ header {
           color: white;
           padding: 10px 20px;
           text-transform: uppercase;
-          font-family: var(--font-ddin-bold);
+          font-family: var(--font-chivo);
+          font-weight: 600;
           letter-spacing: 0.04rem;
           /* border-radius: 0px 30px 0px 0px; */
         }
@@ -465,7 +495,7 @@ header {
       border: none;
       text-align: center;
       background-color: var(--dark-green);
-      font-family: var(--font-ddin);
+      font-family: var(--font-chivo);
       font-size: 2.2rem;
     }
 
@@ -477,7 +507,7 @@ header {
       padding: 0;
       margin: 0;
 
-      font-family: var(--font-ddin);
+      font-family: var(--font-chivo);
       font-size: 3rem;
       color: var(--dark-green);
     }
@@ -532,8 +562,9 @@ header {
   h2 {
     /* color: var(--light-green); */
     color: white;
-    font-family: var(--font-ddin);
-    letter-spacing: 0.2rem;
+    font-family: var(--font-chivo);
+    letter-spacing: 0.06rem;
+    font-weight: 500;
   }
 
   .virusData {
@@ -564,7 +595,7 @@ header {
   }
 
   form {
-    font-family: var(--font-ddin);
+    font-family: var(--font-chivo);
 
     .control {
       margin-right: 25px;
@@ -683,6 +714,7 @@ header {
 
   h3 {
     letter-spacing: 0.06rem;
+    font-weight: 300;
   }
 
   img {
@@ -690,7 +722,7 @@ header {
   }
 
   .itemPrice {
-    font-family: var(--font-ddin);
+    font-family: var(--font-chivo);
     color: var(--light-green);
     font-size: 2rem;
     border-top: 1px solid var(--light-green);
@@ -752,8 +784,9 @@ header {
 
     .amount {
       color: white;
-      font-family: var(--font-ddin);
-      font-size: 2rem;
+      font-family: var(--font-chivo);
+      font-size: 1.6rem;
+      font-weight: 400;
     }
   }
 
@@ -765,10 +798,10 @@ header {
       border-radius: 10px;
       border: 1px var(--light-green) solid;
       width: 100%;
-      font-family: var(--font-ddin);
+      font-family: var(--font-chivo);
       text-transform: uppercase;
       font-size: 1.4rem;
-      font-weight: 900;
+      font-weight: 700;
       letter-spacing: 0.1rem;
       color: var(--dark-green);
       background-color: var(--light-blue);
@@ -788,7 +821,7 @@ header {
 /* CART PAGE */
 
 .cart {
-  font-family: var(--font-ddin);
+  font-family: var(--font-chivo);
   border-top: solid #3acda8 1px;
   padding-top: 10px;
   margin-top: 20px;
@@ -812,7 +845,7 @@ header {
   justify-content: flex-start;
   align-items: flex-start;
   border: var(--light-green) solid 1px;
-  font-family: var(--font-ddin);
+  font-family: var(--font-chivo);
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
@@ -835,7 +868,7 @@ header {
     /* color: var(--light-green); */
     color: white;
     font-weight: bold;
-    font-family: var(--font-ddin);
+    font-family: var(--font-chivo);
     font-size: 1.2rem;
   }
 
@@ -847,7 +880,7 @@ header {
     padding: 0;
     margin: 0;
 
-    font-family: var(--font-ddin);
+    font-family: var(--font-chivo);
     font-size: 2rem;
     color: var(--dark-green);
   }
@@ -873,7 +906,7 @@ button {
   }
 
   .virusName {
-    width: 300px;
+    min-width: 250px;
 
     h2 {
       margin: 0;
@@ -889,9 +922,10 @@ button {
   }
 
   .subtotal {
-    font-family: var(--font-ddin);
+    font-family: var(--font-chivo);
     color: white;
-    font-size: 2.4rem;
+    // font-size: 2.2rem;
+    font-size: 1.5rem;
     margin-left: 40px;
     justify-self: 'start';
   }
@@ -918,8 +952,8 @@ button {
   .remove {
     border: none;
     width: 100%;
-    font-family: var(--font-ddin);
-    font-weight: 900;
+    font-family: var(--font-chivo);
+    font-weight: 700;
     letter-spacing: 0.05rem;
     font-size: 0.9rem;
     background-color: var(--light-blue);
@@ -1030,7 +1064,8 @@ button {
     letter-spacing: 0.06rem;
     border-radius: 0px 0px 30px 30px;
     font-size: 2rem;
-    font-family: var(--font-ddin-bold);
+    font-family: var(--font-chivo);
+    font-weight: 600;
     text-transform: uppercase;
   }
 }
@@ -1185,10 +1220,10 @@ button {
     border-radius: 10px;
     border: 1px var(--light-green) solid;
     /* width: 100%; */
-    font-family: var(--font-ddin-bold);
+    font-family: var(--font-chivo);
+    font-weight: 700;
     text-transform: uppercase;
     font-size: 1rem;
-    font-weight: 900;
     letter-spacing: 0.1rem;
     color: var(--dark-green);
     background-color: var(--light-blue);
@@ -1243,4 +1278,10 @@ button {
     grid-column-start: 2;
     grid-column-end: 3;
   } */
+}
+
+.empty {
+  font-family: var(--font-chivo);
+  font-weight: 300;
+  font-size: 2rem;
 }

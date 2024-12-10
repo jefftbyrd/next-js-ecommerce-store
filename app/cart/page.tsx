@@ -78,7 +78,7 @@ function CartEmpty(props: any) {
   if (!props.show) {
     return null;
   }
-  return <h2>Your cart is empty</h2>;
+  return <h2 className="empty">Your cart is empty</h2>;
 }
 
 export default async function CartPage() {
