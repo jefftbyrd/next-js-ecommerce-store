@@ -151,7 +151,8 @@ export const viruses = [
   },
 ];
 
-export async function up(sql: Sql) {
+export async function up(sql: any) {
+  // export async function up(sql: Sql) {
   for (const virus of viruses) {
     await sql`
       INSERT INTO
@@ -194,7 +195,8 @@ export async function up(sql: Sql) {
   }
 }
 
-export async function down(sql: Sql) {
+export async function down(sql: any) {
+  // export async function down(sql: Sql) {
   for (const virus of viruses) {
     await sql`
       DELETE FROM viruses

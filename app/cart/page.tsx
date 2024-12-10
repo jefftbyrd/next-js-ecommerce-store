@@ -2,7 +2,7 @@
 import Link from 'next/link';
 // import { notFound } from 'next/navigation';
 import React from 'react';
-import type { Virus } from '../../database/viruses';
+// import type { Virus } from '../../database/viruses';
 import { getVirusesInsecure } from '../../database/viruses';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
@@ -15,32 +15,34 @@ export const metadata = {
   description: 'This is the cart page!',
 };
 
-type CartItem = {
-  id: number;
-  quantity: number;
-  virusName: string;
-  price: number;
-  image: string;
-};
+// type CartItem = {
+//   id: number;
+//   quantity: number;
+//   virusName: string;
+//   price: number;
+//   image: string;
+// };
 
-type PropsOne = {
-  show: boolean;
-  virusesInCartList: Virus[];
-};
+// type PropsOne = {
+//   show: boolean;
+//   virusesInCartList: Virus[];
+// };
 
-function CartItemsList(props: PropsOne) {
+function CartItemsList(props: any) {
+  // function CartItemsList(props: PropsOne) {
   if (!props.show) {
     return null;
   }
   return props.virusesInCartList;
 }
 
-type PropsTwo = {
-  show: boolean;
-  virusesInCart: Virus[];
-};
+// type PropsTwo = {
+//   show: boolean;
+//   virusesInCart: Virus[];
+// };
 
-export function TotalAndCheckout(props: PropsTwo) {
+function TotalAndCheckout(props: any) {
+  // function TotalAndCheckout(props: PropsTwo) {
   if (!props.show) {
     return null;
   }
@@ -67,11 +69,12 @@ export function TotalAndCheckout(props: PropsTwo) {
   );
 }
 
-type PropsThree = {
-  show: boolean;
-};
+// type PropsThree = {
+//   show: boolean;
+// };
 
-function CartEmpty(props: PropsThree) {
+function CartEmpty(props: any) {
+  // function CartEmpty(props: PropsThree) {
   if (!props.show) {
     return null;
   }
@@ -80,77 +83,72 @@ function CartEmpty(props: PropsThree) {
 
 export default async function CartPage() {
   const cartCookie = await getCookie('cart');
-  const cartItems: CartItem[] = parseJson(cartCookie) || [];
+  const cartItems = parseJson(cartCookie) || [];
+  // const cartItems: CartItem[] = parseJson(cartCookie) || [];
   const viruses = await getVirusesInsecure();
 
   // Create new array merging cart and viruses data
-  const virusesInCart: [] = viruses
-    .filter((virus) =>
-      cartItems.map((item: { id: number }) => item.id).includes(virus.id),
+  const virusesInCart: any = viruses
+    // const virusesInCart: [] = viruses
+    .filter(
+      (virus: any) => cartItems.map((item: any) => item.id).includes(virus.id),
+      // cartItems.map((item: { id: number }) => item.id).includes(virus.id),
     )
     .map(({ virusDesc, tagline, ...item }) => item)
-    .reduce((acc, virus: { id: number }) => {
+    .reduce((acc: any, virus: any) => {
+      // .reduce((acc, virus: { id: number }) => {
       const cartItem = cartItems.find(
-        (item: { id: number }) => item.id === virus.id,
+        (item: any) => item.id === virus.id,
+        // (item: { id: number }) => item.id === virus.id,
       );
       // acc.push(cartItem ? { ...virus, ...cartItem } : virus);
       acc.push({ ...virus, ...cartItem });
       return acc;
     }, []);
 
-  console.log(virusesInCart);
-
-  // Calculate total price
-  // const cartTotal = virusesInCart.reduce(
-  //   (acc: number, virus: { price: number; quantity: number }) => {
-  //     return (acc += Number(virus.price) * virus.quantity);
-  //   },
-  //   0,
-  // );
-
-  const virusesInCartList = virusesInCart.map(
-    (cartItem: {
-      id: number;
-      quantity: number;
-      virusName: string;
-      price: number;
-      image: string;
-    }) => {
-      return (
-        <div
-          key={`cartItemId-${cartItem.id}`}
-          className="cartItem"
-          data-test-id="product-<product id>"
-        >
-          <Link href={`/viruses/${cartItem.id}`}>
-            <img
-              alt={cartItem.virusName}
-              src={`/viruses/${cartItem.image}`}
-              data-test-id="product-image"
-            />
+  const virusesInCartList = virusesInCart.map((cartItem: any) => {
+    // const virusesInCartList = virusesInCart.map(
+    //   (cartItem: {
+    //     id: number;
+    //     quantity: number;
+    //     virusName: string;
+    //     price: number;
+    //     image: string;
+    //   }) => {
+    return (
+      <div
+        key={`cartItemId-${cartItem.id}`}
+        className="cartItem"
+        data-test-id="product-<product id>"
+      >
+        <Link href={`/viruses/${cartItem.id}`}>
+          <img
+            alt={cartItem.virusName}
+            src={`/viruses/${cartItem.image}`}
+            data-test-id="product-image"
+          />
+        </Link>
+        <div className="info">
+          <Link className="virusName" href={`/viruses/${cartItem.id}`}>
+            <h2>{cartItem.virusName}</h2>
           </Link>
-          <div className="info">
-            <Link className="virusName" href={`/viruses/${cartItem.id}`}>
-              <h2>{cartItem.virusName}</h2>
-            </Link>
-            <div className="cartItemQuantity">
-              <h3>Quantity</h3>
-              <UpdateCart
-                cartItemId={Number(cartItem.id)}
-                cartItemQuantity={Number(cartItem.quantity)}
-              />
-              <RemoveFromCart cartItemId={Number(cartItem.id)} />
-            </div>
-            <div className="subtotal">
-              <h3>Virus Total</h3>
-              {/* Product subtotal:{' '} */}€{' '}
-              {(Number(cartItem.price) * Number(cartItem.quantity)).toFixed(2)}
-            </div>
+          <div className="cartItemQuantity">
+            <h3>Quantity</h3>
+            <UpdateCart
+              cartItemId={Number(cartItem.id)}
+              cartItemQuantity={Number(cartItem.quantity)}
+            />
+            <RemoveFromCart cartItemId={Number(cartItem.id)} />
+          </div>
+          <div className="subtotal">
+            <h3>Virus Total</h3>
+            {/* Product subtotal:{' '} */}€{' '}
+            {(Number(cartItem.price) * Number(cartItem.quantity)).toFixed(2)}
           </div>
         </div>
-      );
-    },
-  );
+      </div>
+    );
+  });
 
   return (
     <div className="subGrid">

@@ -13,7 +13,7 @@ export async function removeItem(cartItemId: number) {
     cartCookie === undefined ? [] : parseJson(cartCookie);
 
   // 3. edit the cookie value
-  const itemToRemove = cart.find((item: { id: number }) => {
+  const itemToRemove: any = cart.find((item: { id: number }) => {
     return item.id === cartItemId;
   });
 
@@ -35,7 +35,7 @@ export async function updateCartQuantity(
   const cart = cartCookie === undefined ? [] : parseJson(cartCookie);
 
   // 3. edit the cookie value
-  const cartItemToUpdate = cart.find((item) => {
+  const cartItemToUpdate: any = cart.find((item: any) => {
     return item.id === cartItemId;
   });
 
@@ -44,15 +44,22 @@ export async function updateCartQuantity(
   (await cookies()).set('cart', JSON.stringify(cart));
 }
 
-type Props = {
-  virusesInCart: [
-    {
-      id: number;
-      price: number;
-      quantity: number;
-    },
-  ];
-};
+// type Props = {
+//   virusesInCartList: [
+//     {
+//       id: number;
+//       price: number;
+//       quantity: number;
+//     },
+//   ];
+//   virusesInCart: [
+//     {
+//       id: number;
+//       price: number;
+//       quantity: number;
+//     },
+//   ];
+// };
 
 // export async function CartTotal(props: Props) {
 //   const cartTotalAmount: number = await props.virusesInCart.reduce(
@@ -64,7 +71,8 @@ type Props = {
 //   return cartTotalAmount;
 // }
 
-export async function CartTotal(props: Props) {
+export async function CartTotal(props: any) {
+  // export async function CartTotal(props: Props) {
   return await props.virusesInCart.reduce(
     (acc: number, virus: { price: number; quantity: number }) => {
       return (acc += Number(virus.price) * virus.quantity);

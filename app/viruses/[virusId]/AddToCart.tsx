@@ -19,10 +19,10 @@ export default function AddToCart(props: Props) {
         </button>
         <input
           data-test-id="product-quantity"
-          value={quantity}
+          value={Number(quantity)}
           type="number"
           min="1"
-          onChange={(event) => setQuantity(event.currentTarget.value)}
+          onChange={(event) => setQuantity(Number(event.currentTarget.value))}
         />
         <button
           className="buttonPlus buttonGreen"

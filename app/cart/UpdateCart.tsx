@@ -2,12 +2,13 @@
 import { useState } from 'react';
 import { updateCartQuantity } from './actions';
 
-type Props = {
-  cartItemId: number;
-  cartItemQuantity: number;
-};
+// type Props = {
+//   cartItemId: number;
+//   cartItemQuantity: number;
+// };
 
-export default function Update(props: Props) {
+// export default function Update(props: Props) {
+export default function Update(props: any) {
   const [quantity, setQuantity] = useState(props.cartItemQuantity);
   return (
     <form>

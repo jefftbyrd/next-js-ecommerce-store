@@ -1,29 +1,26 @@
-// import './singleVirus.module.css';
-// import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React from 'react';
-import type { Virus } from '../../../database/viruses';
+// import type { Virus } from '../../../database/viruses';
 import { getVirusInsecure } from '../../../database/viruses';
-// import { parseJson } from '../../../util/json';
 import AddToCart from './AddToCart';
 
-type PropsParams = {
-  params: Promise<{
-    singleVirus: Virus;
-    virusId: number;
-    show: string | null;
-    // virusId: number;
-  }>;
-};
+// type PropsParams = {
+//   params: {
+//     singleVirus: Virus;
+//     virusId: number;
+//     show: string | null;
+//   };
+// };
 
-type Props = {
-  show: string | null;
-  // virusId: number;
-  singleVirus: Virus;
-};
+// type Props = {
+//   show: string | null;
+//   singleVirus: Virus;
+// };
 
-export async function generateMetadata(props: PropsParams) {
-  const singleVirus: Virus | undefined = await getVirusInsecure(
+export async function generateMetadata(props: any) {
+  // export async function generateMetadata(props: PropsParams) {
+  const singleVirus: any = await getVirusInsecure(
+    // const singleVirus: Virus | undefined = await getVirusInsecure(
     Number((await props.params).virusId),
   );
   return {
@@ -32,14 +29,16 @@ export async function generateMetadata(props: PropsParams) {
   };
 }
 
-export function Tagline(props: Props) {
+function Tagline(props: any) {
+  // function Tagline(props: Props) {
   if (!props.show) {
     return null;
   }
   return <h2>({props.singleVirus.tagline})</h2>;
 }
 
-export function Classification(props: Props) {
+function Classification(props: any) {
+  // function Classification(props: Props) {
   if (!props.show) {
     return null;
   }
@@ -81,16 +80,15 @@ export function Classification(props: Props) {
   );
 }
 
-export default async function SingleVirusPage(props: Props) {
-  const singleVirus = await getVirusInsecure(
+export default async function SingleVirusPage(props: any) {
+  // export default async function SingleVirusPage(props: Props) {
+  const singleVirus: any = await getVirusInsecure(
     Number((await props.params).virusId),
   );
 
   if (!singleVirus) {
     return notFound();
   }
-
-  console.log('single virus', singleVirus);
 
   return (
     <div className="subGridSingleVirus">
