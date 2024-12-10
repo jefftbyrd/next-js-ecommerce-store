@@ -1,8 +1,7 @@
 # VECTOR -- an online virus shop built with Next.js
 
-Visit the deployed site here: https://next-js-ecommerce-store-52gjqbvc4-jeff-t-byrd.vercel.app/
-
----
+Visit the deployed site here:
+https://next-js-ecommerce-store-52gjqbvc4-jeff-t-byrd.vercel.app/
 
 #### Landing page
 ![Vector Viruses Page](./public/vector-home-screen.webp)
