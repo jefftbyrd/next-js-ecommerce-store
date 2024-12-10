@@ -6,9 +6,16 @@ Visit the deployed site here: https://next-js-ecommerce-store-52gjqbvc4-jeff-t-b
 
 #### Landing page
 ![Vector Viruses Page](./public/vector-home-screen.webp)
+
+#### Viruses
 ![Vector Viruses Page](./public/vector-viruses-screen.webp)
+
+#### Influenza
 ![Vector Viruses Page](./public/vector-influenza-screen.webp)
+
+#### Shopping Cart
 ![Vector Viruses Page](./public/vector-cart-screen.webp)
+
 
 ## Features
 
