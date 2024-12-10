@@ -2,7 +2,10 @@
 
 ## An online virus shop built with Next.js
 
-![Vector Viruses Page](./public/vector-screen.webp)
+![Vector Viruses Page](./public/vector-home-screen.webp)
+![Vector Viruses Page](./public/vector-viruses-screen.webp)
+![Vector Viruses Page](./public/vector-influenza-screen.webp)
+![Vector Viruses Page](./public/vector-cart-screen.webp)
 
 ## Features
 
